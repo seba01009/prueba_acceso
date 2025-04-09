@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+<h2>Formulario de acceso</h2>
+
+<form method="post" th:action="@{/login}">
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" name="rut" required><br><br>
+
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" name="contrasena" required><br><br>
+
+    <button type="submit">Ingresar</button>
+</form>
+
+<!-- Mostrar error si se pasa desde el controlador -->
+<div th:if="${error}">
+    <p style="color: red;">[[${error}]]</p>
+</div>
+</body>
+</html>

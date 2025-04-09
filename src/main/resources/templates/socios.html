@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Socios</title>
+</head>
+<body>
+<h2>Socios de la Zona</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>RUT</th>
+        <th>Dirección</th>
+        <th>Acción</th>
+    </tr>
+    <tr th:each="socio : ${socios}">
+        <td th:text="${socio.idSocio}"></td>
+        <td th:text="${socio.nombre}"></td>
+        <td th:text="${socio.rut}"></td>
+        <td th:text="${socio.direccion}"></td>
+        <td>
+            <form th:action="@{/socio/formulario}" method="post">
+                <input type="hidden" name="idSocio" th:value="${socio.idSocio}">
+                <button type="submit">Seleccionar</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<a href="/zonas">Volver</a>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Zonas</title>
+</head>
+<body>
+<h2>Zonas disponibles</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acción</th>
+    </tr>
+    <tr th:each="zona : ${zonas}">
+        <td th:text="${zona.idZona}"></td>
+        <td th:text="${zona.nombreZona}"></td>
+        <td th:text="${zona.descripcion}"></td>
+        <td>
+            <form th:action="@{/zona/seleccionar}" method="post">
+                <input type="hidden" name="idZona" th:value="${zona.idZona}">
+                <button type="submit">Ingresar</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
